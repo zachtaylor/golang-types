@@ -2,16 +2,22 @@ package types
 
 import "net/http"
 
-// Handler is http.Handler
-type Handler = http.Handler
+// HTTPHandler is http.Handler
+type HTTPHandler = http.Handler
 
-// Pather is Handler and Router
-type Pather interface {
-	Handler
-	Router
+// HTTPPather is Handler and Router
+type HTTPPather interface {
+	HTTPHandler
+	HTTPRouter
 }
 
-// Router is an HTTP routing interface
-type Router interface {
+// HTTPRequest is http.Request
+type HTTPRequest = http.Request
+
+// HTTPRouter is an HTTP routing interface
+type HTTPRouter interface {
 	RouteHTTP(*http.Request) bool
 }
+
+// HTTPWriter is http.ResponseWriter
+type HTTPWriter = http.ResponseWriter
