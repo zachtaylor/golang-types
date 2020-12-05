@@ -19,5 +19,8 @@ type HTTPRouter interface {
 // HTTPServer is http.Handler
 type HTTPServer = http.Handler
 
+// HTTPServerFunc is http.HandlerFunc
+type HTTPServerFunc = http.HandlerFunc
+
 // HTTPWriter is http.ResponseWriter
 type HTTPWriter = http.ResponseWriter
