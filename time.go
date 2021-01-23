@@ -26,22 +26,19 @@ type Time = time.Time
 // Timer = time.Timer
 type Timer = time.Timer
 
-// NewTicker creates a time.Ticker
-func NewTicker(d Duration) *Ticker {
-	return time.NewTicker(d)
+// Date returns time.Date()
+func Date(year int, month time.Month, day, hour, min, sec, nsec int, loc *time.Location) Time {
+	return time.Date(year, month, day, hour, min, sec, nsec, loc)
 }
+
+// NewTicker creates a time.Ticker
+func NewTicker(d Duration) *Ticker { return time.NewTicker(d) }
 
 // NewTimer creates a time.Timer
-func NewTimer(d Duration) *Timer {
-	return time.NewTimer(d)
-}
+func NewTimer(d Duration) *Timer { return time.NewTimer(d) }
 
 // NewTime returns time.Now()
-func NewTime() Time {
-	return time.Now()
-}
+func NewTime() Time { return time.Now() }
 
 // NewTimeUnix return time.Unix()
-func NewTimeUnix(sec int64, nsec int64) Time {
-	return time.Unix(sec, nsec)
-}
+func NewTimeUnix(sec int64, nsec int64) Time { return time.Unix(sec, nsec) }
