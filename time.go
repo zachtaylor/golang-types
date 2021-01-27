@@ -26,6 +26,21 @@ type Time = time.Time
 // Timer = time.Timer
 type Timer = time.Timer
 
+// Clocker is a clock interface
+type Clocker interface {
+	// NewTime returns the time
+	NewTime() Time
+}
+
+// ClockerFunc is a func type for Clocker
+type ClockerFunc func() Time
+
+// NewTime returns f()
+func (f ClockerFunc) NewTime() Time { return f() }
+
+// DefaultClock creates a Clocker from NewTime
+func DefaultClock() Clocker { return ClockerFunc(NewTime) }
+
 // Date returns time.Date()
 func Date(year int, month time.Month, day, hour, min, sec, nsec int, loc *time.Location) Time {
 	return time.Date(year, month, day, hour, min, sec, nsec, loc)
