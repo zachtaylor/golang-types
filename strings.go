@@ -5,11 +5,6 @@ import "strings"
 // StringBuilder is strings.Builder
 type StringBuilder = strings.Builder
 
-// StringGenerator creates a new string
-type StringGenerator interface {
-	New() string
-}
-
 // StringReader is strings.Reader
 type StringReader = strings.Reader
 
