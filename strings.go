@@ -16,3 +16,9 @@ func NewStringReader(s string) *StringReader { return strings.NewReader(s) }
 
 // NewStringReplacer returns strings.NewReplacer
 func NewStringReplacer(oldnew ...string) *StringReplacer { return strings.NewReplacer(oldnew...) }
+
+// Restringer is a header for string manipulation
+type Restringer interface {
+	// Restring returns another string
+	Restring(string) string
+}
