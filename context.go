@@ -18,7 +18,7 @@ func (c Context) Done() <-chan struct{} { return c.Context.Done() }
 func (c Context) Err() error { return c.Context.Err() }
 
 // Value is Context.Value
-func (c Context) Value(key Any) Any { return c.Value(key) }
+func (c Context) Value(key Any) Any { return c.Context.Value(key) }
 
 // WithCancel is context.WithCancel(this)
 func (c Context) WithCancel() (ctx Context, cancel context.CancelFunc) {
