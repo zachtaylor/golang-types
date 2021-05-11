@@ -1,3 +1,3 @@
 module taylz.io/types
 
-go 1.15
+go 1.16
