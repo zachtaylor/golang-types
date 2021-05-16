@@ -35,7 +35,7 @@ type Error struct {
 func (e Error) Unwrap() error { return e.error }
 
 // Source returns the source of the error if available
-func (e Error) Source() Stringer { return e.source }
+func (e Error) Source() Source { return e.source }
 
 func (e Error) Error() string {
 	if e.error == nil {
@@ -63,7 +63,7 @@ type ErrorWrapper interface {
 }
 
 // ErrorSource returns the source of the error, if available
-func ErrorSource(err error) (source Stringer) {
+func ErrorSource(err error) (source Source) {
 	if sourcer, _ := err.(ErrorSourcer); sourcer != nil {
 		source = sourcer.Source()
 	}
@@ -73,7 +73,7 @@ func ErrorSource(err error) (source Stringer) {
 // ErrorSourcer is an error sub-type which returns error source
 type ErrorSourcer interface {
 	// Source returns the source of the error
-	Source() Stringer
+	Source() Source
 }
 
 // ErrorChain returns the stack of errors extracted by ErrorCause
