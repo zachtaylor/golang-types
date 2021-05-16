@@ -1,6 +1,9 @@
 package types
 
-import "runtime"
+import (
+	"runtime"
+	"strconv"
+)
 
 // Source links to a go code instruction
 type Source struct {
@@ -23,4 +26,4 @@ func (src Source) File() string { return src.file }
 // Line returns source line
 func (src Source) Line() int { return src.line }
 
-func (src Source) String() string { return src.file + "#" + ToStringInt(src.line) }
+func (src Source) String() string { return src.file + "#" + strconv.FormatInt(int64(src.line), 10) }
